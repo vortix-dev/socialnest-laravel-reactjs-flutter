@@ -33,7 +33,5 @@
 - Moderate content
 - Analytics (number of posts, users, likes, etc.)
 
----
 
-## 🧩 Folder Structure
 
