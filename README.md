@@ -8,7 +8,7 @@
 
 | Layer        | Technology        |
 |--------------|-------------------|
-| Backend API  | Laravel 10        |
+| Backend API  | Laravel 12        |
 | Web Frontend | ReactJS           |
 | Mobile App   | Flutter (iOS/Android) |
 | Auth System  | Laravel Sanctum   |
