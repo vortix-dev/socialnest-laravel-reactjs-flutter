@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username')->unique();
-            $table->text('bio');
+            $table->text('bio')->nullable();
             $table->date('date_de_naissance');
             $table->enum('sexe',['male','female']);
             $table->string('email')->unique();

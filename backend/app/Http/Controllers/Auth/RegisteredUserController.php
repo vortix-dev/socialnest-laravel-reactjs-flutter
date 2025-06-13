@@ -18,14 +18,14 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): Response
+    public function store(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required' , 'string' , 'lowercase' , 'max:50' , 'unique:'.User::class],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'date_de_naissance' => ['required' , 'date'],
-            'sexe' => ['required' , 'in:homme,femme'],
+            'sexe' => ['required' , 'in:male,female'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -42,6 +42,9 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return response()->noContent();
+        return response()->json([
+            'status' => 200,
+            'message' => 'Registred has been successfully'
+        ],200);
     }
 }
