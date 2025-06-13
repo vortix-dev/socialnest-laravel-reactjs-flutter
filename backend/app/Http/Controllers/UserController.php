@@ -10,7 +10,7 @@ class UserController extends Controller
     public function updateProfile(Request $request)
     {
         $request->validate([
-            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png|max:22480',
+            'profile_image' => 'required|image|mimes:jpg,jpeg,png|max:22480',
         ]);
 
         $user = auth()->user();
@@ -30,5 +30,24 @@ class UserController extends Controller
             'image_url' => $user->profile_img ? asset($user->profile_img) : null,
         ]);
     }
+
+    public function updateBio(Request $request)
+    {
+        $request->validate([
+            'bio' => 'required|max:600',
+        ]);
+
+        $user = auth()->user();
+
+        $user->bio = $request->bio;
+        $user->save();
+
+        return response()->json([
+            'message' => 'Bio has been updated',
+            'bio' => $user->bio,
+        ]);
+    }
+
+    
 
 }
