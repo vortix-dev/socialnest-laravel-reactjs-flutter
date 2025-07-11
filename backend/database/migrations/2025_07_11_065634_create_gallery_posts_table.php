@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('gallery_posts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('post_id')->constrained('posts');
+            $table->string('img');
             $table->timestamps();
         });
     }
