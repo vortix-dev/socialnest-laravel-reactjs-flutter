@@ -1,21 +1,21 @@
 <?php
-
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'description',
-        'date',
-        'heure',
-        'status',
+        'user_id', 'description', 'date', 'heure', 'status'
     ];
+
+    public function gallery()
+    {
+        return $this->hasMany(GalleryPost::class);
+    }
 
     public function user()
     {
