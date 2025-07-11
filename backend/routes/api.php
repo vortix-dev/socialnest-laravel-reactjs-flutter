@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -32,4 +33,5 @@ Route::middleware('auth:sanctum')->prefix('user')->group(static function(){
     Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store']);
     Route::post('/upload-profile-img',[UserController::class,'updateProfile']);
     Route::post('/update-bio',[UserController::class,'updateBio']);
+    Route::apiResource('/post',PostController::class);
 });
