@@ -49,7 +49,7 @@ class PostController extends Controller
             'date' => 'required|date',
             'heure' => 'required',
             'status' => 'in:active,archive',
-            'media.*' => 'nullable|file|mimes:jpg,jpeg,png,mp4,mov|max:20480',
+            'media.*' => 'nullable|file|mimes:jpg,jpeg,png,mp4,mov|max:204800',
         ]);
 
         if ($validator->fails()) {
